@@ -30,7 +30,7 @@ export default function Home() {
         >
           <div className="absolute top-0 right-0 w-1/3 h-full opacity-20">
             <svg
-              viewBox="0 0 200 700"
+              viewBox="0 0 200 1350"
               xmlns="http://www.w3.org/2000/svg"
               className="w-full h-full text-teal-primary"
               fill="currentColor"
