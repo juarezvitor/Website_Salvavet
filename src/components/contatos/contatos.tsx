@@ -9,19 +9,21 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    details: ["Av. Paulista, 1000 - Bela Vista", "São Paulo - SP, 01310-100"],
+    details: [
+      "Rua Theodoro Holtrup 774, Blumenau, Santa Catarina, Brazil 89035300",
+    ],
     color: "bg-blue-100 text-blue-600",
   },
   {
     icon: Phone,
     title: "Telefones",
-    details: ["(11) 4321-5678 (Atendimento)", "(11) 98765-4321 (Emergência)"],
+    details: ["(47) 99663-2210 (Atendimento)", "(47) 3285-2018 (Emergência)"],
     color: "bg-green-100 text-green-600",
   },
   {
     icon: Mail,
     title: "E-mails",
-    details: ["contato@salvavet24h.com.br", "emergencia@salvavet24h.com.br"],
+    details: ["vets.animal@gmail.com"],
     color: "bg-purple-100 text-purple-600",
   },
   {
@@ -40,7 +42,7 @@ export function ContactSection() {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="bg-teal-100 text-[#11b5a2] font-semibold px-4 py-2 rounded-full text-sm mb-4">
+          <Badge className="bg-white text-[#11b5a2] font-bold px-4 py-2 rounded-full text-sm mb-4">
             Entre em Contato
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -60,7 +62,7 @@ export function ContactSection() {
               {contactInfo.map((info, index) => (
                 <Card
                   key={index}
-                  className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-0"
+                  className="bg-white shadow-lg hover:scale-105 duration-300 border-0"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
@@ -176,16 +178,22 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-[#0d9488] text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center flex-1">
+                    <Button className="bg-[#0d9488] text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center flex-1 hover:scale-105">
                       <Send className="w-4 h-4 mr-2" />
                       Enviar Mensagem
                     </Button>
                     <Button
                       type="button"
-                      className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                      className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center hover:scale-105"
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
-                      WhatsApp
+                      <a
+                        href="https://api.whatsapp.com/send/?phone=5547996632210&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Whatsapp
+                      </a>
                     </Button>
                   </div>
                 </form>
@@ -212,7 +220,7 @@ export function ContactSection() {
 
                 <div className="relative h-80">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975750916406!2d-46.65844368502207!3d-23.561414984691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1647875234567!5m2!1spt-BR!2sbr"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42107.65743036982!2d-49.09765095184376!3d-26.914450510333676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df1f9f12f72b1d%3A0x8acdc53993b0ae82!2sCentro%20Cl%C3%ADnico%20Veterin%C3%A1rio%20SalvaVet%2024h!5e1!3m2!1spt-BR!2sbr!4v1754420059135!5m2!1spt-BR!2sbr"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -227,10 +235,10 @@ export function ContactSection() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-gray-800">
-                        Av. Paulista, 1000
+                        Theodoro Holtrup 774
                       </p>
                       <p className="text-gray-600 text-sm">
-                        Bela Vista, São Paulo - SP
+                        Vila Nova, Blumenau - SC
                       </p>
                     </div>
                     <Button
@@ -258,14 +266,14 @@ export function ContactSection() {
                   </p>
                   <div className="space-y-3">
                     <div className="bg-white/20 rounded-lg p-3">
-                      <p className="font-bold text-lg">(11) 98765-4321</p>
+                      <p className="font-bold text-lg">(47) 3285-2018</p>
                       <p className="text-red-100 text-sm">
                         Linha direta de emergência
                       </p>
                     </div>
-                    <Button className="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-lg transition duration-300 w-full">
+                    <Button className="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-lg transition duration-300 w-full hover:scale-105">
                       <Phone className="w-5 h-5 mr-2" />
-                      Ligar Agora
+                      <a href="tel:+55473285-2018">Ligar Agora</a>
                     </Button>
                   </div>
                 </div>

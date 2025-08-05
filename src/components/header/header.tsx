@@ -69,9 +69,14 @@ export function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button className="bg-red-900 hover:bg-[#c8958a] text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center">
+            <Button className="bg-red-700 hover:bg-red-900 hover:scale-105 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center">
               <Clock className="w-5 h-5 mr-1" />
-              Emergência
+              <a
+                target="blank"
+                href="https://api.whatsapp.com/send/?phone=5547996632210&text&type=phone_number&app_absent=0"
+              >
+                Emergência
+              </a>
             </Button>
             <button
               className="md:hidden text-gray-700"

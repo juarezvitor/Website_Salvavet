@@ -10,12 +10,11 @@ import {
   BookCheck,
   Stethoscope,
   Syringe,
-  Clock,
-  Phone,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
 import Image from "next/image";
+import Emergencia from "@/components/emergencia";
+import { Footer } from "@/components/footer/footer";
+import { TeamSection } from "@/components/timeClinica/team_clinical";
 
 export default function Home() {
   return (
@@ -28,24 +27,10 @@ export default function Home() {
           id="inicio"
           className="relative overflow-hidden py-20 md:py-32"
         >
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-20">
-            <svg
-              viewBox="0 0 200 1350"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full text-teal-primary"
-              fill="currentColor"
-            >
-              <path
-                d="M42.7,-73.2C55.9,-65.7,67.7,-55.1,76.6,-41.5C85.5,-27.9,91.5,-11.2,89.8,4.4C88.2,20,78.9,34.5,68.3,47.2C57.8,59.9,45.9,70.8,32,76.3C18.1,81.8,2.2,81.9,-14.9,79.7C-32,77.5,-50.3,73,-62.1,61.5C-73.9,50,-79.2,31.5,-80.8,13.3C-82.4,-4.9,-80.3,-22.9,-72.6,-37.8C-64.9,-52.7,-51.7,-64.6,-37.4,-71.3C-23.1,-78,-11.6,-79.6,1.6,-82.2C14.7,-84.8,29.5,-80.6,42.7,-73.2Z"
-                transform="translate(100 60)"
-              />
-            </svg>
-          </div>
-
           <div className="container mx-auto px-10 relative mb-24">
             <div className="flex flex-col md:flex-row items-center">
               {/* Texto */}
-              <div className="md:w-1/2 mb-12 md:mb-0">
+              <div className="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
                 <div className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm p-8 rounded-2xl shadow-xl max-w-lg border-gray-200 border">
                   <span className="inline-block bg-teal-50 text-teal-primary font-semibold px-3 py-1 rounded-full text-sm mb-2">
                     Atendimento 24 horas
@@ -63,14 +48,15 @@ export default function Home() {
 
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a
-                      href="#contato"
-                      className="gradient-bg text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-xl"
+                      target="blank"
+                      href="https://api.whatsapp.com/send/?phone=5547996632210&text&type=phone_number&app_absent=0"
+                      className="bg-teal-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-x1 hover:scale-105"
                     >
                       Agendar Consulta
                     </a>
                     <a
                       href="#servicos"
-                      className="bg-white text-teal-primary font-medium py-3 px-6 rounded-lg border border-teal-200 transition duration-300 text-center hover:bg-teal-50"
+                      className="bg-white text-teal-primary font-medium py-3 px-6 rounded-lg border border-teal-200 transition duration-300 text-center hover:bg-teal-600 hover:scale-105 hover:text-white"
                     >
                       Nossos Serviços
                     </a>
@@ -123,9 +109,13 @@ export default function Home() {
               </div>
 
               {/* Hero Section com imagem */}
-              <div className="md:w-1/2 flex justify-center">
+              <div
+                className="md:w-1/2 flex justify-center"
+                data-aos="fade-left"
+              >
                 <div className="relative">
                   <div className="absolute -top-6 -left-6 bg-teal-100 rounded-full w-24 h-24 z-0" />
+                  <div className="absolute -top-10 -right-46 translate-y-20 bg-neutral-400 rounded-full min-w-96 h-96 z-0" />
                   <div className="absolute -bottom-6 -right-6 bg-teal-100 rounded-full w-32 h-32 z-0" />
                   <div className="relative z-10 bg-white p-3 rounded-2xl shadow-x1">
                     <Image
@@ -162,42 +152,18 @@ export default function Home() {
             </div>
           </div>
           {/*<!-- Banner Emergencia -->*/}
-          <section id="emergencia" className="bg-red-400 py-6">
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="flex items-center mb-6 md:mb-0">
-                  <div className="bg-white/20 rounded-full p-3 mr-4">
-                    <Clock className="w-8 h-8 text-white animate-pulse" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-2xl">
-                      Emergência Veterinária
-                    </h3>
-                    <p className="text-[#f4e6e3]">
-                      Atendimento imediato para o seu pet
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                  <div className="flex items-center bg-white rounded-lg px-5 py-3 shadow-lg">
-                    <Phone className="w-5 h-5 text-[#d7a097] mr-2" />
-                    <span className="font-bold text-[#d7a097]">
-                      (11) 4321-5678
-                    </span>
-                  </div>
-                  <Button className="bg-white hover:bg-gray-100 text-[#d7a097] font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg flex items-center justify-center">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Ligar Agora
-                  </Button>
-                </div>
-              </div>
-            </div>
+          <section id="Fachado_Emergencia">
+            <Emergencia />
           </section>
           {/*<!-- Serviços Section -->*/}
-          <section id="servicos" className="py-20 bg-white">
+          <section
+            id="servicos"
+            className="py-20 bg-white"
+            data-aos="fade-right"
+          >
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <span className="inline-block bg-teal-50 text-teal-primary font-semibold px-3 py-1 rounded-full text-sm mb-3">
+                <span className="inline-block bg-teal-50 text-[#11b5a2] font-bold px-4 py-1 rounded-full text-sm mb-3">
                   Nossos Serviços
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -254,16 +220,22 @@ export default function Home() {
             </div>
           </section>
           {/*<!-- Sobre Section -->*/}
-          <section>
+          <section id="Section-Sobre" data-aos="fade-left">
             <Sobre />
           </section>
-          <section>
+          <section id="Section-Equipe" data-aos="fade-right">
+            <TeamSection />
+          </section>
+          <section id="Depoimento-Section" data-aos="fade-left">
             <TestimonialsSection />
           </section>
-          <section>
+          <section id="Contato-Section" data-aos="fade-right">
             <ContactSection />
           </section>
         </section>
+        <footer id="footer">
+          <Footer />
+        </footer>
       </section>
     </main>
   );

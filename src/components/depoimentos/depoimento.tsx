@@ -10,25 +10,25 @@ import { Star, User } from "lucide-react";
 
 const depoimentos = [
   {
-    name: "Fernanda Almeida",
-    petName: "Thor",
+    name: "Patricia Antunes",
+    petName: "Mia",
     rating: 5,
     comment:
-      "Meu cachorro teve uma emergência no meio da noite e a equipe da VetCare24h foi incrível! Atendimento rápido e cuidadoso. Salvaram a vida do meu Thor e me mantiveram informada durante todo o processo.",
+      "A minha mia foi super bem atendida, a recuperação da castração foi um sucesso com 7 dias já está toda feliz corerndo pela casa e fazendo bagunça, eu amei atendimento, a agilidade e competência muito obrigada por tudo salvavet.",
   },
   {
-    name: "Roberto Mendes",
+    name: "Roberto Nunes",
     petName: "Nina",
     rating: 5,
     comment:
-      "Levo minha gata para consultas regulares na VetCare24h e sempre fico impressionada com o carinho e profissionalismo da equipe. A Dra. Ana é excepcional e sempre explica tudo detalhadamente. Recomendo muito!",
+      "O que realmente impressiona é o atendimento da equipe. Eles são dedicados, atenciosos e genuinamente se importam com os animais. Desde a recepção até os veterinários, todos são amigáveis e eficientes.",
   },
   {
-    name: "Juliana Santos",
-    petName: "Max",
+    name: "Yasmin Carmacio",
+    petName: "Luna",
     rating: 5,
     comment:
-      "Meu cachorro precisou de uma cirurgia delicada e toda a equipe da VetCare24h foi excepcional. O Dr. Carlos é um cirurgião incrível e o acompanhamento pós-operatório foi perfeito. Hoje meu pet está 100% recuperado!",
+      "Fui super bem atendida na consulta da minha gata! Fizeram rapidamente o diagnóstico e o tratamento! Preços justos, profissionais que trabalham em equipe e bem competentes.ótima localização! Agradeço por sempre me mandar notícias e fotos enquanto ela estava internada <3",
   },
 ];
 
@@ -37,7 +37,7 @@ export function TestimonialsSection() {
     <section className="py-20 bg-teal-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="bg-teal-100 text-[#11b5a2] font-semibold px-3 py-1 rounded-full text-sm mb-3">
+          <Badge className="bg-white text-[#11b5a2] font-bold px-4 py-1 rounded-full text-sm mb-3">
             Depoimentos
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -53,7 +53,7 @@ export function TestimonialsSection() {
           {depoimentos.map((testimonial, index) => (
             <Card
               key={index}
-              className="bg-white p-8 rounded-xl shadow-lg relative"
+              className="bg-white p-8 rounded-xl shadow-lg relative hover:scale-105 duration-300"
             >
               <div className="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
                 <svg
@@ -88,7 +88,7 @@ export function TestimonialsSection() {
                       {testimonial.name}
                     </CardTitle>
                     <p className="text-gray-500 text-sm">
-                      Tutor do {testimonial.petName}
+                      Tutor do(a) {testimonial.petName}
                     </p>
                   </div>
                 </div>

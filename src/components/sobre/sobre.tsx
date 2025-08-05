@@ -56,14 +56,14 @@ export default function Sobre() {
           </div>
 
           <div className="lg:w-1/2">
-            <span className="inline-block bg-teal-50 text-[#11b5a2] font-semibold px-3 py-1 rounded-full text-sm mb-3">
+            <span className="inline-block bg-teal-50 text-[#11b5a2] font-bold px-4 py-1 rounded-full text-sm mb-3">
               Sobre Nós
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Cuidando do seu pet com excelência desde 2010
             </h2>
             <p className="text-gray-600 mb-6">
-              A VetCare24h nasceu da paixão por animais e da necessidade de
+              A Salvavet nasceu da paixão por animais e da necessidade de
               oferecer atendimento veterinário de qualidade a qualquer hora do
               dia ou da noite. Nossa missão é proporcionar cuidados veterinários
               excepcionais, com compaixão e profissionalismo.
