@@ -35,7 +35,7 @@ const teamMembers = [
 
 export function TeamSection() {
   return (
-    <section id="equipe" className="py-20 bg-white">
+    <section id="equipe" className="py-20 bg-neutral-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="bg-teal-50 text-[#11b5a2] font-bold px-4 py-1 rounded-full text-sm mb-3">

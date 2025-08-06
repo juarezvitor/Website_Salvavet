@@ -1,4 +1,3 @@
-import type React from "react";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -12,10 +11,30 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SalvaVet 24h - Clínica Veterinária",
-  description: "Cuidado veterinário de excelência 24 horas por dia",
+  title: {
+    default: "SalvaVet 24h - Clínica Veterinária",
+    template: "%s | SalvaVet 24h",
+  },
+  description: "Cuidado veterinário de excelência 24 horas por dia.",
   icons: {
     icon: "/favicon.png",
+  },
+  metadataBase: new URL("https://www.salvavet.com.br"), // ajuste com seu domínio real
+  openGraph: {
+    title: "SalvaVet 24h - Clínica Veterinária",
+    description: "Cuidado veterinário de excelência 24 horas por dia.",
+    url: "https://www.salvavet.com.br",
+    siteName: "SalvaVet 24h",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph.png", // Adicione essa imagem na pasta public
+        width: 1200,
+        height: 630,
+        alt: "SalvaVet - Clínica Veterinária 24h",
+      },
+    ],
   },
 };
 

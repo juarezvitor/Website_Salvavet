@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Sobre() {
   return (
-    <section id="sobre" className="py-20 bg-teal-50">
+    <section id="sobre" className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
