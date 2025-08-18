@@ -1,9 +1,22 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  MessageCircle,
+  Loader2,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
+import { useState } from "react";
 
 const contactInfo = [
   {
@@ -35,6 +48,129 @@ const contactInfo = [
 ];
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<
+    | "idle"
+    | "Enviando..."
+    | "Mensagem enviada com sucesso!"
+    | "Erro ao enviar mensagem."
+  >("idle");
+
+  // objeto com mensagens de erro por campo
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    email?: string;
+    subject?: string;
+    message?: string;
+  }>({});
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+    // limpa erro do campo enquanto digita
+    setErrors((prev) => ({ ...prev, [id]: undefined }));
+  }
+
+  function validate() {
+    const newErrors: typeof errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name || !formData.name.trim()) {
+      newErrors.name = "Nome é obrigatório.";
+    }
+
+    if (!formData.email || !formData.email.trim()) {
+      newErrors.email = "E-mail é obrigatório.";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "E-mail inválido.";
+    }
+
+    if (!formData.subject || !formData.subject.trim()) {
+      newErrors.subject = "Assunto é obrigatório.";
+    }
+
+    if (!formData.message || !formData.message.trim()) {
+      newErrors.message = "Mensagem é obrigatória.";
+    }
+
+    return newErrors;
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    // valida antes de enviar
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+
+      // foca no primeiro campo inválido
+      const firstInvalid = Object.keys(validationErrors)[0];
+      const el = document.getElementById(firstInvalid!);
+      if (el) (el as HTMLElement).focus();
+
+      return; // NÃO envia enquanto houver erro
+    }
+
+    // limpa erros (se houver) e inicia envio
+    setErrors({});
+    setStatus("Enviando...");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Mensagem enviada com sucesso!");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        // limpa mensagem de sucesso após alguns segundos
+        setTimeout(() => setStatus("idle"), 4500);
+      } else {
+        setStatus("Erro ao enviar mensagem.");
+      }
+    } catch (error) {
+      setStatus("Erro ao enviar mensagem.");
+      console.log("Error sending email:", error);
+    }
+  }
+
+  function sendWhatsAppMessage() {
+    const phoneNumber = "5547996632210"; // seu número com código do país e DDD, sem símbolos
+    const message = `
+        Olá, meu nome é ${formData.name}.
+        Telefone: ${formData.phone}
+        E-mail: ${formData.email}
+        Assunto: ${formData.subject}
+        Mensagem: ${formData.message}`;
+
+    // Monta a URL encode para WhatsApp
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+      message
+    )}`;
+
+    // Abre em nova aba
+    window.open(url, "_blank");
+  }
+
   return (
     <section id="contato" className="py-20 bg-neutral-200">
       <div className="container mx-auto px-4">
@@ -97,7 +233,7 @@ export function ContactSection() {
                   </h3>
                 </div>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label
@@ -109,9 +245,21 @@ export function ContactSection() {
                       <Input
                         id="name"
                         type="text"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Seu nome"
-                        className="w-full border-gray-200 focus:border-[#11b5a2] focus:ring-[#11b5a2]"
+                        aria-invalid={!!errors.name}
+                        className={`w-full focus:border-[#11b5a2] focus:ring-[#11b5a2] ${
+                          errors.name
+                            ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                            : "border-gray-200"
+                        }`}
                       />
+                      {errors.name && (
+                        <p className="text-red-600 text-sm mt-1">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label
@@ -123,9 +271,20 @@ export function ContactSection() {
                       <Input
                         id="phone"
                         type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
                         placeholder="(11) 99999-9999"
-                        className="w-full border-gray-200 focus:border-[#11b5a2] focus:ring-[#11b5a2]"
+                        className={`w-full focus:border-[#11b5a2] focus:ring-[#11b5a2] ${
+                          errors.phone
+                            ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                            : "border-gray-200"
+                        }`}
                       />
+                      {errors.phone && (
+                        <p className="text-red-600 text-sm mt-1">
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -139,9 +298,21 @@ export function ContactSection() {
                     <Input
                       id="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="seu@email.com"
-                      className="w-full border-gray-200 focus:border-[#11b5a2] focus:ring-[#11b5a2]"
+                      aria-invalid={!!errors.email}
+                      className={`w-full focus:border-[#11b5a2] focus:ring-[#11b5a2] ${
+                        errors.email
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                          : "border-gray-200"
+                      }`}
                     />
+                    {errors.email && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -154,9 +325,21 @@ export function ContactSection() {
                     <Input
                       id="subject"
                       type="text"
+                      value={formData.subject}
+                      onChange={handleChange}
                       placeholder="Como podemos ajudar?"
-                      className="w-full border-gray-200 focus:border-[#11b5a2] focus:ring-[#11b5a2]"
+                      aria-invalid={!!errors.subject}
+                      className={`w-full focus:border-[#11b5a2] focus:ring-[#11b5a2] ${
+                        errors.subject
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                          : "border-gray-200"
+                      }`}
                     />
+                    {errors.subject && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -169,30 +352,77 @@ export function ContactSection() {
                     <Textarea
                       id="message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Conte-nos sobre seu pet e como podemos ajudar..."
-                      className="w-full border-gray-200 focus:border-[#11b5a2] focus:ring-[#11b5a2] resize-none"
+                      aria-invalid={!!errors.message}
+                      className={`w-full focus:border-[#11b5a2] focus:ring-[#11b5a2] resize-none ${
+                        errors.message
+                          ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                          : "border-gray-200"
+                      }`}
                     />
+                    {errors.message && (
+                      <p className="text-red-600 text-sm mt-1">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-[#0d9488] text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center flex-1 hover:scale-105">
-                      <Send className="w-4 h-4 mr-2" />
-                      Enviar Mensagem
+                    <Button
+                      type="submit"
+                      disabled={status === "Enviando..."}
+                      className="bg-[#0d9488] text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center flex-1 hover:scale-105 disabled:opacity-60"
+                    >
+                      {status === "Enviando..." ? (
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      ) : (
+                        <Send className="w-4 h-4 mr-2" />
+                      )}
+                      {status === "Enviando..."
+                        ? "Enviando..."
+                        : "Enviar Mensagem"}
                     </Button>
+
                     <Button
                       type="button"
                       className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center hover:scale-105"
+                      onClick={sendWhatsAppMessage}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
-                      <a
-                        href="https://api.whatsapp.com/send/?phone=5547996632210&text&type=phone_number&app_absent=0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Whatsapp
-                      </a>
+                      Whatsapp
                     </Button>
                   </div>
+
+                  {/* Mensagens de status final */}
+                  {status === "Mensagem enviada com sucesso!" && (
+                    <div
+                      className="mt-4 flex items-center text-green-600 font-medium"
+                      role="status"
+                      aria-live="polite"
+                    >
+                      <CheckCircle2 className="w-5 h-5 mr-2" />
+                      Mensagem enviada com sucesso!
+                    </div>
+                  )}
+                  {status === "Erro ao enviar mensagem." && (
+                    <div
+                      className="mt-4 flex items-center text-red-600 font-medium"
+                      role="alert"
+                      aria-live="assertive"
+                    >
+                      <XCircle className="w-5 h-5 mr-2" />
+                      Ocorreu um erro ao enviar. Tente novamente.
+                    </div>
+                  )}
+
+                  {/* Mensagem geral de validação (opcional) */}
+                  {Object.keys(errors).length > 0 && (
+                    <div className="mt-3 text-red-600 text-sm">
+                      Preencha corretamente os campos em destaque.
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -242,6 +472,12 @@ export function ContactSection() {
                       variant="outline"
                       size="sm"
                       className="border-[#11b5a2] text-[#11b5a2] hover:bg-[#11b5a2] hover:text-white bg-transparent"
+                      onClick={() =>
+                        window.open(
+                          "https://www.google.com/maps/dir/?api=1&destination=Rua+Theodoro+Holtrup+774,+Vila+Nova,+Blumenau,+SC",
+                          "_blank"
+                        )
+                      }
                     >
                       Ver Rotas
                     </Button>
