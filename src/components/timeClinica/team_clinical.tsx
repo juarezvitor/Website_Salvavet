@@ -20,13 +20,13 @@ const teamMembers = [
       "Com especialização em Anestesiologia e Clínica Geral, a Dra. Amanda une técnicas avançadas para garantir segurança e conforto aos seus pacientes durante procedimentos médicos. Além disso, ela atua na prevenção e acompanhamento clínico, sempre priorizando o bem-estar e a saúde integral.",
   },
   {
-    name: "Dra Larissa",
+    name: "Dra. Larissa",
     role: "Clinica Geral",
     description:
       "A Dra. Larissa é especialista em Clínica Geral e tem ampla experiência no atendimento primário de saúde. Seu objetivo é oferecer diagnósticos precisos e tratamentos personalizados, promovendo a qualidade de vida e o cuidado contínuo para seus pacientes.",
   },
   {
-    name: "Dra Claudia",
+    name: "Dra. Claudia",
     role: "Cirurgiã e Dermatologista",
     description:
       "Cirurgiã e Dermatologista, a Dra. Claudia combina habilidades cirúrgicas com o cuidado especializado da pele. Ela oferece tratamentos modernos e eficazes para diversas condições dermatológicas, sempre buscando aliar saúde e estética com segurança e excelência.",
