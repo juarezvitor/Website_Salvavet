@@ -24,11 +24,11 @@ const depoimentos = [
       "O que realmente impressiona é o atendimento da equipe. Eles são dedicados, atenciosos e genuinamente se importam com os animais. Desde a recepção até os veterinários, todos são amigáveis e eficientes.",
   },
   {
-    name: "Yasmin Carmacio",
+    name: "Maria Eduarda Souza Melo",
     petName: "Luna",
     rating: 5,
     comment:
-      "Fui super bem atendida na consulta da minha gata! Fizeram rapidamente o diagnóstico e o tratamento! Preços justos, profissionais que trabalham em equipe e bem competentes.ótima localização! Agradeço por sempre me mandar notícias e fotos enquanto ela estava internada <3",
+      "Eu amei castrar o meu gatinho Nino na clínica muito bem cuidado e tive um ótimo atendimento e cicatrizou muito bem e a recuperação foi rápido e foram atenciosos",
   },
 ];
 

@@ -60,7 +60,7 @@ export default function Sobre() {
               Sobre Nós
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Cuidando do seu pet com excelência desde 2010
+              Cuidando do seu pet com excelência a 7 anos
             </h2>
             <p className="text-gray-600 mb-6">
               A Salvavet nasceu da paixão por animais e da necessidade de

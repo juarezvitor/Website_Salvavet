@@ -36,7 +36,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "E-mails",
-    details: ["vets.animal@gmail.com"],
+    details: ["Salvavet123@gmail.com"],
     color: "bg-purple-100 text-purple-600",
   },
   {
@@ -502,6 +502,12 @@ export function ContactSection() {
                       <p className="font-bold text-lg">(47) 3285-2018</p>
                       <p className="text-red-100 text-sm">
                         Linha direta de emergência
+                      </p>
+                    </div>
+                    <div className="bg-white/20 rounded-lg p-3">
+                      <p className="font-bold text-lg">(47) 99663-2210</p>
+                      <p className="text-red-100 text-sm">
+                        Atendimento geral e suporte
                       </p>
                     </div>
                     <Button className="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-lg transition duration-300 w-full hover:scale-105">

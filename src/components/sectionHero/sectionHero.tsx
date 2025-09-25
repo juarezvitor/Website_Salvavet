@@ -7,7 +7,7 @@ export default function sectionHero() {
         {/* Texto */}
         <div className="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
           <div className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-2xl p-8 rounded-2xl shadow-xl max-w-lg border-neutral-200 border">
-            <span className="inline-block bg-teal-50 text-teal-primary font-semibold px-3 py-1 rounded-full text-sm mb-2">
+            <span className="inline-block bg-red-50 text-red-700 font-bold px-3 py-1 rounded-full text-sm mb-2">
               Atendimento 24 horas
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">

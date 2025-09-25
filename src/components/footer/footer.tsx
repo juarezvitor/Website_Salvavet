@@ -80,7 +80,7 @@ export function Footer() {
             <div className="flex space-x-3">
               <Link
                 target="_blank"
-                href="https://www.facebook.com/profile.php?id=100063887062328"
+                href="https://www.facebook.com/salvavetblumenau"
                 className="bg-gray-900 hover:bg-[#0d9488] text-white p-2 rounded-full transition-colors duration-300"
               >
                 <Facebook className="h-5 w-5" />
@@ -182,7 +182,7 @@ export function Footer() {
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-gray-900 mr-3 mt-1 flex-shrink-0" />
                 <div className="text-gray-600">
-                  <p>vets.animal@gmail.com</p>
+                  <p>Salvavet123@gmail.com</p>
                 </div>
               </li>
               <li className="flex items-start">

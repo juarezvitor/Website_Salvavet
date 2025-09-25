@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph.png", // Adicione essa imagem na pasta public
+        url: "/favicon2.png", // Adicione essa imagem na pasta public
         width: 1200,
         height: 630,
         alt: "SalvaVet - Clínica Veterinária 24h",
