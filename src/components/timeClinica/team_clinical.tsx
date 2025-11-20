@@ -5,29 +5,34 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 
 const teamMembers = [
   {
     name: "Dra. Yasmin",
     role: "Clinica Geral",
+    image: "/images_team/yasmin.jpeg",
     description:
       "Especialista em Clínica Geral, a Dra. Yasmin dedica-se a cuidar da saúde integral de seus pacientes com atenção, carinho e profundo conhecimento médico. Seu compromisso é oferecer um atendimento humanizado, focado na prevenção e no tratamento eficaz de diversas condições clínicas.",
   },
   {
     name: "Dra. Amanda",
     role: "Anestesista e Clinica Geral",
+    image: "/images_team/amanda.jpeg",
     description:
       "Com especialização em Anestesiologia e Clínica Geral, a Dra. Amanda une técnicas avançadas para garantir segurança e conforto aos seus pacientes durante procedimentos médicos. Além disso, ela atua na prevenção e acompanhamento clínico, sempre priorizando o bem-estar e a saúde integral.",
   },
   {
     name: "Dra. Larissa",
     role: "Clinica Geral",
+    image: "/images_team/larissa.jpeg",
     description:
       "A Dra. Larissa é especialista em Clínica Geral e tem ampla experiência no atendimento primário de saúde. Seu objetivo é oferecer diagnósticos precisos e tratamentos personalizados, promovendo a qualidade de vida e o cuidado contínuo para seus pacientes.",
   },
   {
     name: "Dra. Claudia",
     role: "Cirurgiã e Dermatologista",
+    image: "/images_team/claudia.jpg",
     description:
       "Cirurgiã e Dermatologista, a Dra. Claudia combina habilidades cirúrgicas com o cuidado especializado da pele. Ela oferece tratamentos modernos e eficazes para diversas condições dermatológicas, sempre buscando aliar saúde e estética com segurança e excelência.",
   },
@@ -56,10 +61,15 @@ export function TeamSection() {
               key={index}
               className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl hover:scale-105 group"
             >
-              <div className="h-64 bg-[#f4e6e3] relative overflow-hidden">
-                <div className="absolute inset-0 to-transparent opacity-0 group-hover:opacity-70 transition-opacity flex items-end justify-center pb-6"></div>
+              <div className="h-96 bg-[#f4e6e3] relative overflow-hidden">     
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="w-full h-full object-top object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
               </div>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <CardTitle className="font-bold text-gray-800 text-xl mb-1">
                   {member.name}
                 </CardTitle>

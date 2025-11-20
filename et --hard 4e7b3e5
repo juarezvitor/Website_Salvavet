@@ -1,0 +1,13 @@
+[33mc2f5363[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull --rebase origin master (finish): returning to refs/heads/master
+[33mc2f5363[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: pull --rebase origin master (pick): Projeto Finalizado
+[33m9e29041[m HEAD@{2}: pull --rebase origin master (start): checkout 9e29041308f31cb408e5b7a720b54dfec026ec88
+[33m4e7b3e5[m HEAD@{3}: commit: Projeto Finalizado
+[33mb75082d[m HEAD@{4}: reset: moving to HEAD
+[33mb75082d[m HEAD@{5}: commit: Realizado alterações que foi conversado ontem
+[33m107b2e6[m HEAD@{6}: commit: Adicionado arquivo .env
+[33mba08950[m HEAD@{7}: commit: Realizao alteraçoes .env para envio de email
+[33m1f14a9e[m HEAD@{8}: commit: Estamos no finalmente
+[33m79b1a46[m HEAD@{9}: commit: Feito alterações visuais pt 2
+[33maf1effe[m HEAD@{10}: commit: Realizado altrerações visuais, quase pronto
+[33m2f3e227[m HEAD@{11}: commit: Arrumado front
+[33m7dae224[m HEAD@{12}: commit (initial): Commit inicial: Landingpage salvavet
