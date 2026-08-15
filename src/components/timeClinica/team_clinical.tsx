@@ -9,11 +9,11 @@ import Image from "next/image";
 
 const teamMembers = [
   {
-    name: "Dra. Yasmin",
+    name: "Dra. Julia",
     role: "Clinica Geral",
-    image: "/images_team/yasmin.jpeg",
+    image: "/images_team/Julia.jpeg",
     description:
-      "Especialista em Clínica Geral, a Dra. Yasmin dedica-se a cuidar da saúde integral de seus pacientes com atenção, carinho e profundo conhecimento médico. Seu compromisso é oferecer um atendimento humanizado, focado na prevenção e no tratamento eficaz de diversas condições clínicas.",
+      "Dra. Julia dedica-se a cuidar da saúde integral de seus pacientes com atenção, carinho e profundo conhecimento médico. Seu compromisso é oferecer um atendimento humanizado, focado na prevenção e no tratamento eficaz de diversas condições clínicas.",
   },
   {
     name: "Dra. Amanda",
@@ -61,13 +61,13 @@ export function TeamSection() {
               key={index}
               className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl hover:scale-105 group"
             >
-              <div className="h-96 bg-[#f4e6e3] relative overflow-hidden">     
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="w-full h-full object-top object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+              <div className="h-96 bg-[#f4e6e3] relative overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="w-full h-full object-top object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
               <CardContent className="p-4">
                 <CardTitle className="font-bold text-gray-800 text-xl mb-1">
