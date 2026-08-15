@@ -96,7 +96,7 @@ export function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col items-center space-y-4">
               <Link
                 href="#inicio"
                 className="text-gray-700 hover:text-[#11b5a2] font-medium transition-colors"

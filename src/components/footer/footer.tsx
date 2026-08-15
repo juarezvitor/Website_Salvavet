@@ -77,7 +77,7 @@ export function Footer() {
               especializadas.
             </p>
 
-            <div className="flex space-x-3">
+            <div className="flex items-center justify-center space-x-3">
               <Link
                 target="_blank"
                 href="https://www.facebook.com/salvavetblumenau"
@@ -103,10 +103,10 @@ export function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-bold text-gray-900 mb-6 relative">
               Links Rápidos
-              <span className="absolute bottom-0 left-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
+              <span className="absolute bottom-0 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
             </h3>
             <ul className="space-y-3">
               {[
@@ -120,7 +120,7 @@ export function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-[#11b5a2] hover:translate-x-1 transition-all duration-300 flex items-center"
+                    className="text-gray-600 hover:text-[#11b5a2] hover:translate-x-1 transition-all duration-300 flex items-center justify-center md:justify-start"
                   >
                     <ArrowRight className="h-3 w-3 mr-2 text-gray-900" />
                     {link.name}
@@ -131,10 +131,10 @@ export function Footer() {
           </div>
 
           {/* Column 3: Services */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-bold text-gray-900 mb-6 relative">
               Nossos Serviços
-              <span className="absolute bottom-0 left-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
+              <span className="absolute bottom-0 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
             </h3>
             <ul className="space-y-3">
               {[
@@ -149,7 +149,7 @@ export function Footer() {
                 <li key={index}>
                   <Link
                     href="#servicos"
-                    className="text-gray-600 hover:text-[#11b5a2] hover:translate-x-1 transition-all duration-300 flex items-center"
+                    className="text-gray-600 hover:text-[#11b5a2] hover:translate-x-1 transition-all duration-300 flex items-center justify-center md:justify-start"
                   >
                     <ArrowRight className="h-3 w-3 mr-2 text-gray-900" />
                     {service}
@@ -160,32 +160,32 @@ export function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-bold text-gray-900 mb-6 relative">
               Informações de Contato
-              <span className="absolute bottom-0 left-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
+              <span className="absolute bottom-0 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 w-12 h-1 bg-[#11b5a2] -mb-2"></span>
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start">
                 <MapPin className="h-5 w-5 text-gray-900 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-gray-600">
                   Theodoro Holtrup, 774 - Vila Nova, Blumenau - SC, 89035-300
                 </span>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start">
                 <Phone className="h-5 w-5 text-gray-900 mr-3 mt-1 flex-shrink-0" />
                 <div className="text-gray-600">
                   <p>(47) 99663-2210(Atendimento)</p>
                   <p>(47) 3285-2018 (Emergência)</p>
                 </div>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start">
                 <Mail className="h-5 w-5 text-gray-900 mr-3 mt-1 flex-shrink-0" />
                 <div className="text-gray-600">
                   <p>Salvavet123@gmail.com</p>
                 </div>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start">
                 <Clock className="h-5 w-5 text-gray-900 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-900">Aberto 24 horas</p>
